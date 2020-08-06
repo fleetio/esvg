@@ -120,7 +120,7 @@ module Esvg
     def read_cache
       return unless cache = read_tmp(@config[:cache_file])
 
-      YAML.load(cache).each do |c|
+      (YAML.load(cache) || {}).each do |c|
 
         # Only read cache data which matches this source
         # Example: Cache data from previous gem versions shouldn't be loaded
